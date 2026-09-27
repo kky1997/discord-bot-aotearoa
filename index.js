@@ -85,4 +85,10 @@ async function sendCountdown() {
   });
 }
 
-sendCountdown();
+sendCountdown()
+  .then(() => {
+    console.log('Countdown sent successfully');
+  })
+  .catch((error) => {
+    console.error('Failed to send countdown:', error);
+  });
