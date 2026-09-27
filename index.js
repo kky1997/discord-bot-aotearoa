@@ -1,13 +1,19 @@
 import dotenv from 'dotenv';
-import { Client, GatewayIntentBits } from 'discord.js';
+import { Client, GatewayIntentBits, WebhookClient, AttachmentBuilder } from 'discord.js';
 import cron from 'node-cron';
 
 dotenv.config();
 
+/* OLD WEB CLIENT ARCHITECTURE
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
   ],
+});*/
+
+// New webhook architecture
+const webhook = new WebhookClient({
+  url: process.env.WEBHOOK_URL,
 });
 
 const images = {
@@ -43,7 +49,7 @@ function getMonthsUntilClimb() {
   return (CLIMB_YEAR - year) * 12 + (CLIMB_MONTH - month);
 }
 
-
+/* OLD WEB CLIENT ARCHITECTURE
 cron.schedule('0 9 28 * *', async () => {
   const channel = await client.channels.fetch(process.env.CHANNEL_ID);
   const monthsUntilClimb = getMonthsUntilClimb();
@@ -62,3 +68,21 @@ cron.schedule('0 9 28 * *', async () => {
 
 
 client.login(process.env.DISCORD_TOKEN);
+*/
+
+// New webhook architecture, this doesn't actually use the bot anymore, just webhook into the channel
+async function sendCountdown() {
+  const monthsUntilClimb = getMonthsUntilClimb();
+
+  const imagePath =
+    images[monthsUntilClimb + 1] ?? images[1];
+
+  const attachment = new AttachmentBuilder(imagePath);
+
+  await webhook.send({
+    content: `${monthsUntilClimb} months until we climb`,
+    files: [attachment],
+  });
+}
+
+sendCountdown();
