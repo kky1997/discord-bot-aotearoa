@@ -41,6 +41,7 @@ const nzFacts = {
   3: 'Milford Sound was carved by glaciers during successive ice ages.',
   2: 'New Zealand sits on the boundary between the Pacific and Australian tectonic plates.',
   1: 'The Southern Alps stretch for roughly 500 km along New Zealands South Island.',
+  0: 'New Zealand is home to the world’s steepest residential street, Baldwin Street in Dunedin.',
 };
 
 const CLIMB_YEAR = 2027;
@@ -84,7 +85,7 @@ client.login(process.env.DISCORD_TOKEN);
 
 // New webhook architecture, this doesn't actually use the bot anymore, just webhook into the channel
 async function sendCountdown() {
-  /*const monthsUntilClimb = getMonthsUntilClimb();
+  const monthsUntilClimb = getMonthsUntilClimb();
 
   const imagePath =
     images[monthsUntilClimb + 1] ?? images[1];
@@ -93,13 +94,14 @@ async function sendCountdown() {
 
   const fact = nzFacts[monthsUntilClimb];
 
-  await webhook.send({
-    content: `${monthsUntilClimb} months until we climb 🏔️ **NZ fact:** ${fact}`,
-    files: [attachment],
-  });*/
+  const message =
+  monthsUntilClimb === 0
+    ? 'We climb this month 🏔️'
+    : `${monthsUntilClimb} months until we climb 🏔️`;
 
   await webhook.send({
-    content: `testing gh actions with webhook`,
+    content: `${message}\n\n🇳🇿 **NZ fact:** ${fact}`,
+    files: [attachment],
   });
 }
 
