@@ -30,6 +30,18 @@ const images = {
   11: "public/thumb-1920-1394199.png",
 }
 
+const nzFacts = {
+  10: 'New Zealand has no native land snakes.',
+  9: 'The kea is the worlds only alpine parrot.',
+  8: 'New Zealand was one of the last major landmasses settled by humans.',
+  7: 'Aotearoa is a Māori name commonly used for New Zealand.',
+  6: 'Fiordland is one of the wettest regions in New Zealand.',
+  5: 'New Zealand has more than 50 volcanoes, many of them around the Taupō Volcanic Zone.',
+  4: 'The kiwi is flightless, nocturnal, and has nostrils near the tip of its beak.',
+  3: 'Milford Sound was carved by glaciers during successive ice ages.',
+  2: 'New Zealand sits on the boundary between the Pacific and Australian tectonic plates.',
+  1: 'The Southern Alps stretch for roughly 500 km along New Zealands South Island.',
+};
 
 const CLIMB_YEAR = 2027;
 const CLIMB_MONTH = 7;
@@ -79,8 +91,10 @@ async function sendCountdown() {
 
   const attachment = new AttachmentBuilder(imagePath);
 
+  const fact = nzFacts[monthsUntilClimb];
+
   await webhook.send({
-    content: `${monthsUntilClimb} months until we climb`,
+    content: `${monthsUntilClimb} months until we climb 🏔️ **NZ fact:** ${fact}`,
     files: [attachment],
   });
 }
