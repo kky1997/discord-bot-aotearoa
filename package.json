@@ -1,0 +1,29 @@
+{
+  "name": "discord-bot-aotearoa",
+  "version": "1.0.0",
+  "description": "experimenting with a discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kky1997/discord-bot-aotearoa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kky1997/discord-bot-aotearoa/issues"
+  },
+  "homepage": "https://github.com/kky1997/discord-bot-aotearoa#readme",
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "dotenv": "^18.0.4",
+    "node-cron": "^4.6.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.9"
+  }
+}

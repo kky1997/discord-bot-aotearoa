@@ -1,0 +1,19 @@
+{
+  "name": "Basic JS and Node tooling",
+
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "features": {},
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "editorconfig.editorconfig"
+      ]
+    }
+  }
+}
