@@ -84,7 +84,7 @@ client.login(process.env.DISCORD_TOKEN);
 
 // New webhook architecture, this doesn't actually use the bot anymore, just webhook into the channel
 async function sendCountdown() {
-  const monthsUntilClimb = getMonthsUntilClimb();
+  /*const monthsUntilClimb = getMonthsUntilClimb();
 
   const imagePath =
     images[monthsUntilClimb + 1] ?? images[1];
@@ -96,6 +96,10 @@ async function sendCountdown() {
   await webhook.send({
     content: `${monthsUntilClimb} months until we climb 🏔️ **NZ fact:** ${fact}`,
     files: [attachment],
+  });*/
+
+  await webhook.send({
+    content: `testing gh actions with webhook`,
   });
 }
 
