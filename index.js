@@ -44,7 +44,7 @@ function getMonthsUntilClimb() {
 }
 
 
-cron.schedule('0 9 27 * *', async () => {
+cron.schedule('0 9 28 * *', async () => {
   const channel = await client.channels.fetch(process.env.CHANNEL_ID);
   const monthsUntilClimb = getMonthsUntilClimb();
 
