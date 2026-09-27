@@ -23,4 +23,4 @@ Run the bot:
 npm start
 ```
 
-The bot posts in the configured Discord channel on the 27th of each month.
+The bot posts in the configured Discord channel on the 28th of each month.
